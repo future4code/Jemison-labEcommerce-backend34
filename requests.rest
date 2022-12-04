@@ -1,4 +1,4 @@
-GET http://localhost:3003/character
+GET http://localhost:3003/character?name=D
 
 ### 
 PUT http://localhost:3003/character
@@ -9,3 +9,7 @@ Content-Type: application/json
     "gender": "MALE",
     "description": "O irmão do Prof X!!!"
 }
+
+###
+
+DELETE http://localhost:3003/character/1

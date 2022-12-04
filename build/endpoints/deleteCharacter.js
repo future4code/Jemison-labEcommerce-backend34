@@ -10,17 +10,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const connection_1 = require("../connection");
-function createCharacter(req, res) {
+function deleteCharacter(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { name, gender, description } = req.body;
-            yield (0, connection_1.connection)("character").insert({ name, gender, description });
-            res.status(201).end();
+            const { id } = req.params;
+            yield (0, connection_1.connection)("character").delete().where({ id });
+            res.status(200).end();
         }
         catch (error) {
             res.status(500).send("Unexpected server error");
         }
     });
 }
-exports.default = createCharacter;
-//# sourceMappingURL=createCharacter.js.map
+exports.default = deleteCharacter;
+//# sourceMappingURL=deleteCharacter.js.map
